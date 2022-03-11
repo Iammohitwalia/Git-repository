@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
+
 <body>
     <div class="container">
         <div class="row">
@@ -26,39 +30,74 @@
     <div class="whatsapp-option">
         <div class="wa-row">
             <div class="wa-col">
-                <div class="whtasapp-btn"><i class="fa-brands fa-whatsapp"></i><span>chat with whatsapp</span></span></div>
-                 <div class="wa-popup">
-                     <h3>Chat on whatsapp</h3><span class="close">x</span>
-                     <div class="whatsapp-data"><a href="https://wa.me/+15875775228?text=Hi%27,%20like%20to%20chat%20with%20you"><i class="fa-brands fa-whatsapp"></i>Username</a></div>
-                 </div>
+                <div class="whtasapp-btn"><i class="fa-brands fa-whatsapp"></i><span>chat with whatsapp</span></span>
+                </div>
+                <div class="wa-popup">
+                    <h3>Chat on whatsapp</h3><span class="close">x</span>
+                    <div class="whatsapp-data"><a
+                            href="https://wa.me/+15875775228?text=Hi%27,%20like%20to%20chat%20with%20you"><i
+                                class="fa-brands fa-whatsapp"></i>Username</a></div>
+                </div>
             </div>
         </div>
-    </div>     
+    </div>
+    <div class="create-div">
+        <div class="create-row">
+            <div class="createcol" id="itsme">
+                <select>
+                    <option value='1'>1</option>
+                    <option value='2'>2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10"> 10</option>
+                </select>
+                <div id="container">
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script>
 
     $(document).ready(function () {
-         //For hiding popup
+        //For hiding popup
         $('.wa-popup').hide();
         //click to show popup
-        $('.whtasapp-btn').click(function (e) { 
+        $('.whtasapp-btn').click(function (e) {
             e.preventDefault();
             $('.wa-popup').show();
         });
         //click to hide popup 
-        $('.close').click(function (e) { 
-             e.preventDefault();
-             $('.wa-popup').hide();
-         });
+        $('.close').click(function (e) {
+            e.preventDefault();
+            $('.wa-popup').hide();
+        });
         //add active class to li menus 
-        $('.menu').click(function (e) { 
-            const className="active";
+        $('.menu').click(function (e) {
+            const className = "active";
             e.preventDefault();
             $('.menu').removeClass(className);
             $(this).addClass(className);
-        });   
-   });
-</script>
-</html>
+        });
+        $('select').on('change', function () {
+            var val = parseInt($(this).val(), 10) + 1,
+                str = '';
 
+            for (var i = 1; i < val; i++) {
+                str += '<input type="text" name="name' + i + '" id="id' + i + '"/>';
+            }
+
+            $('#container').html(str);
+        });
+    });
+</script>
+
+</html>
